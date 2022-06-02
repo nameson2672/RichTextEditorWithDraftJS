@@ -14,11 +14,13 @@ import createAlignmentPlugin from '@draft-js-plugins/alignment';
 import createFocusPlugin from '@draft-js-plugins/focus';
 import createResizeablePlugin from '@draft-js-plugins/resizeable'
 import createLinkifyPlugin from '@draft-js-plugins/linkify';
+import createEmojiPlugin from '@draft-js-plugins/emoji';
 
 import editorStyles from "../Css/editorStyle.module.css";
 import buttonStyles from "../Css/buttonStyle.module.css";
 import toolbarStyles from "../Css/toolbarStyle.module.css";
 import '@draft-js-plugins/image/lib/plugin.css';
+import '@draft-js-plugins/emoji/lib/plugin.css';
 
 const toolbarPlugin = createToolbarPlugin({
   theme: { buttonStyles, toolbarStyles },
@@ -102,6 +104,8 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
         />
         <AlignmentTool />
         <Toolbar />
+        <EmojiSuggestions />
+        <EmojiSelect />
       </div>
       <button onClick={logMe}>Click Me</button>
     </div>
