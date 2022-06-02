@@ -1,4 +1,5 @@
 import { readFile } from "@draft-js-plugins/drag-n-drop-upload";
+import axios from "axios";
 
 /*
  *
@@ -10,10 +11,23 @@ import { readFile } from "@draft-js-plugins/drag-n-drop-upload";
  * @param {(function(percent:int, file: {name:string, src:string})} progress - function to mark the progress in percentage points. It updates the progress count on each placeholder.
  */
 export default function mockUpload(data, success, failed, progress) {
-  function doProgress() {
-    // Start reading the file
-    success(data.files, { retainSrc: false });
-  }
 
-  doProgress();
+  const options = {
+    onUploadProgress: (progressEvent)=>{
+      const {loaded, total} = progressEvent;
+      let percent = Math.floor((loaded*100)/total);
+      progress(percent, data.files[0]);
+      
+      console.log(loaded, total, percent);
+    }
+  } 
+
+  let payload = new FormData();
+  payload.append("image", data.files[0]);
+  axios.post("http://localhost:5000/uploadImage", payload, options).then(res =>{
+    data.files[0].src = res.data;
+    console.log(res.data);
+    success(data.files, { retainSrc: true });
+  });
+
 }

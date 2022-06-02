@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
-//import mockUpload from '../Components/MockUpload';
+import mockUpload from '../Components/MockUpload';
 import { readFile } from "@draft-js-plugins/drag-n-drop-upload";
 
 import Editor, { composeDecorators } from "@draft-js-plugins/editor";
 import { convertToRaw, convertFromRaw, EditorState } from "draft-js";
 import '@draft-js-plugins/alignment/lib/plugin.css';
+
 
 import createToolbarPlugin from "@draft-js-plugins/static-toolbar";
 import createBlockDndPlugin from '@draft-js-plugins/drag-n-drop';
@@ -17,6 +18,7 @@ import createResizeablePlugin from '@draft-js-plugins/resizeable'
 import editorStyles from "../Css/editorStyle.module.css";
 import buttonStyles from "../Css/buttonStyle.module.css";
 import toolbarStyles from "../Css/toolbarStyle.module.css";
+import '@draft-js-plugins/image/lib/plugin.css';
 
 const toolbarPlugin = createToolbarPlugin({
   theme: { buttonStyles, toolbarStyles },
@@ -72,7 +74,7 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
     console.log(editorState.getCurrentContent());
     console.log(data);
   };
-  const focus = () => {
+  const focus = (editor) => {
     editor.focus();
   };
   useEffect(() => {
@@ -81,7 +83,7 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
 
   return (
     <div>
-      <div className={editorStyles.editor} onClick={focus}>
+      <div className={editorStyles.editor} >
         <Editor
           editorState={editorState}
           onChange={onChange}
@@ -97,21 +99,3 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
 };
 
 export default ThemedToolbarEditor;
-
-function mockUpload(data, success, failed, progress) {
-  function doProgress(percent) {
-    progress(percent);
-    if (percent === 100) {
-      // Start reading the file
-      Promise.all(data.files.map(readFile)).then((files) =>
-      success(files, { retainSrc: true })
-      );
-    } else {
-      setTimeout(doProgress, 250, (percent || 0) + 10);
-    }
-  }
-  data.files[0].src = "/logo192.png"
-  console.log(data);
-  success(data.files, { retainSrc: true });
-  //doProgress(100);
-}
