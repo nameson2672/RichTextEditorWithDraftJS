@@ -59,7 +59,7 @@ function App() {
   return (
     <div className="App">
       <ThemedToolbarEditor  setDraftjsData={setDraftjsData} draftjsData={draftjsData}/>
-      {/* <RenderDraftJsData JsonData={draftjsData} /> */}
+      <RenderDraftJsData JsonData={draftjsData} />
       {/* <CustomImageEditor /> */}
     </div>
   );

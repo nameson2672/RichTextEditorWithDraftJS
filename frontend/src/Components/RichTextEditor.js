@@ -1,11 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import mockUpload from '../Components/MockUpload';
-import { readFile } from "@draft-js-plugins/drag-n-drop-upload";
 
 import Editor, { composeDecorators } from "@draft-js-plugins/editor";
 import { convertToRaw, convertFromRaw, EditorState } from "draft-js";
 import '@draft-js-plugins/alignment/lib/plugin.css';
-
+import '@draft-js-plugins/linkify/lib/plugin.css';
 
 import createToolbarPlugin from "@draft-js-plugins/static-toolbar";
 import createBlockDndPlugin from '@draft-js-plugins/drag-n-drop';
@@ -14,6 +13,7 @@ import createDragNDropUploadPlugin from '@draft-js-plugins/drag-n-drop-upload';
 import createAlignmentPlugin from '@draft-js-plugins/alignment';
 import createFocusPlugin from '@draft-js-plugins/focus';
 import createResizeablePlugin from '@draft-js-plugins/resizeable'
+import createLinkifyPlugin from '@draft-js-plugins/linkify';
 
 import editorStyles from "../Css/editorStyle.module.css";
 import buttonStyles from "../Css/buttonStyle.module.css";
@@ -28,6 +28,11 @@ const resizeablePlugin = createResizeablePlugin();
 const blockDndPlugin = createBlockDndPlugin();
 const alignmentPlugin = createAlignmentPlugin();
 const { AlignmentTool } = alignmentPlugin;
+const linkifyPlugin = createLinkifyPlugin( { component(props) {
+  // eslint-disable-next-line no-alert, jsx-a11y/anchor-has-content
+  return <a {...props} onClick={() =>   window.open(
+    props.href, "_blank")} />
+}});
 
 const decorator = composeDecorators(
    resizeablePlugin.decorator,
@@ -43,6 +48,9 @@ const dragNDropFileUploadPlugin = createDragNDropUploadPlugin({
 });
 const { Toolbar } = toolbarPlugin;
 
+const emojiPlugin = createEmojiPlugin();
+const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
+
 const plugins = [
   toolbarPlugin,
   dragNDropFileUploadPlugin,
@@ -51,6 +59,8 @@ const plugins = [
   alignmentPlugin,
   resizeablePlugin,
   imagePlugin,
+  linkifyPlugin,
+  emojiPlugin
 ];
 
 
@@ -70,9 +80,9 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
 
   const logMe = () => {
     const data = convertToRaw(editorState.getCurrentContent());
-    //setDraftjsData(data);
+    setDraftjsData(data);
     console.log(editorState.getCurrentContent());
-    console.log(data);
+    console.log(JSON.stringify(data));
   };
   const focus = (editor) => {
     editor.focus();
