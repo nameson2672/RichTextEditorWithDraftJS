@@ -103,7 +103,7 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
           ref={editor}
         />
         <AlignmentTool />
-        <Toolbar />
+        {/* <Toolbar /> */}
         <EmojiSuggestions />
         <EmojiSelect />
       </div>
