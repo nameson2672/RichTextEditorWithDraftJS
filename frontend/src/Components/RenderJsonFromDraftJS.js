@@ -2,13 +2,13 @@ import Editor, { composeDecorators } from "@draft-js-plugins/editor";
 import { convertToRaw, convertFromRaw, EditorState } from "draft-js";
 
 
-import createToolbarPlugin from "@draft-js-plugins/static-toolbar";
 import createBlockDndPlugin from "@draft-js-plugins/drag-n-drop";
 import createImagePlugin from "@draft-js-plugins/image";
 import createAlignmentPlugin from "@draft-js-plugins/alignment";
 import createFocusPlugin from "@draft-js-plugins/focus";
 import createResizeablePlugin from "@draft-js-plugins/resizeable";
 import createLinkifyPlugin from "@draft-js-plugins/linkify";
+import createMentionPlugin from '@draft-js-plugins/mention';
 
 import editorStyles from "../Css/editorStyle.module.css";
 import buttonStyles from "../Css/buttonStyle.module.css";
@@ -18,9 +18,7 @@ import { useEffect, useRef, useState } from "react";
 import "@draft-js-plugins/alignment/lib/plugin.css";
 import "@draft-js-plugins/linkify/lib/plugin.css";
 
-const toolbarPlugin = createToolbarPlugin({
-  theme: { buttonStyles, toolbarStyles },
-});
+
 const focusPlugin = createFocusPlugin();
 const resizeablePlugin = createResizeablePlugin();
 const blockDndPlugin = createBlockDndPlugin();
@@ -40,7 +38,7 @@ const decorator = composeDecorators(
 );
 const imagePlugin = createImagePlugin({ decorator });
 
-const { Toolbar } = toolbarPlugin;
+const mentionPlugin = createMentionPlugin();
 
 const plugins = [
     linkifyPlugin,
@@ -48,7 +46,8 @@ const plugins = [
   focusPlugin,
   alignmentPlugin,
   resizeablePlugin,
-  imagePlugin
+  imagePlugin,
+  mentionPlugin
 ];
 
 const RenderDraftJsData = (draftjsData) => {

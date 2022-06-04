@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useMemo, useCallback } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import mockUpload from '../Components/MockUpload';
 import mentions from "../mention";
 
@@ -9,7 +9,6 @@ import '@draft-js-plugins/linkify/lib/plugin.css';
 import '@draft-js-plugins/mention/lib/plugin.css';
 import mentionsStyles from '../Css/MentionsStyles.module.css';
 
-import createToolbarPlugin from "@draft-js-plugins/static-toolbar";
 import createBlockDndPlugin from '@draft-js-plugins/drag-n-drop';
 import createImagePlugin from '@draft-js-plugins/image';
 import createDragNDropUploadPlugin from '@draft-js-plugins/drag-n-drop-upload';
@@ -27,9 +26,7 @@ import '@draft-js-plugins/image/lib/plugin.css';
 import '@draft-js-plugins/emoji/lib/plugin.css';
 import "@draft-js-plugins/mention/lib/plugin.css";
 
-const toolbarPlugin = createToolbarPlugin({
-  theme: { buttonStyles, toolbarStyles },
-});
+
 const focusPlugin = createFocusPlugin();
 const resizeablePlugin = createResizeablePlugin();
 const blockDndPlugin = createBlockDndPlugin();
@@ -52,15 +49,17 @@ const dragNDropFileUploadPlugin = createDragNDropUploadPlugin({
   handleUpload: mockUpload,
   addImage: imagePlugin.addImage,
 });
-const { Toolbar } = toolbarPlugin;
 
-const emojiPlugin = createEmojiPlugin();
+const emojiPlugin = createEmojiPlugin({
+  allowImageCache: true,
+  useNativeArt: true
+});
 const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
 const mentionPlugin = createMentionPlugin();
 const { MentionSuggestions } = mentionPlugin;
 
 const plugins = [
-  toolbarPlugin,
+  
   dragNDropFileUploadPlugin,
   blockDndPlugin,
   focusPlugin,
@@ -83,7 +82,7 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
   const onChange = (editorState) => {
     setEditorState(editorState);
     console.log(editorState);
-    setDraftjsData(convertToRaw(editorState.getCurrentContent()));
+    //setDraftjsData(convertToRaw(editorState.getCurrentContent()));
   };
 
 
@@ -124,7 +123,6 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
           ref={editor}
         />
         <AlignmentTool />
-        {/* <Toolbar /> */}
         <EmojiSuggestions />
         <EmojiSelect />
         <MentionSuggestions
