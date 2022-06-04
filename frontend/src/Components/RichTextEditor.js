@@ -1,10 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo, useCallback } from "react";
 import mockUpload from '../Components/MockUpload';
+import mentions from "../mention";
 
 import Editor, { composeDecorators } from "@draft-js-plugins/editor";
 import { convertToRaw, convertFromRaw, EditorState } from "draft-js";
 import '@draft-js-plugins/alignment/lib/plugin.css';
 import '@draft-js-plugins/linkify/lib/plugin.css';
+import '@draft-js-plugins/mention/lib/plugin.css';
+import mentionsStyles from '../Css/MentionsStyles.module.css';
 
 import createToolbarPlugin from "@draft-js-plugins/static-toolbar";
 import createBlockDndPlugin from '@draft-js-plugins/drag-n-drop';
@@ -15,12 +18,14 @@ import createFocusPlugin from '@draft-js-plugins/focus';
 import createResizeablePlugin from '@draft-js-plugins/resizeable'
 import createLinkifyPlugin from '@draft-js-plugins/linkify';
 import createEmojiPlugin from '@draft-js-plugins/emoji';
+import createMentionPlugin, { defaultSuggestionsFilter} from '@draft-js-plugins/mention';
 
 import editorStyles from "../Css/editorStyle.module.css";
 import buttonStyles from "../Css/buttonStyle.module.css";
 import toolbarStyles from "../Css/toolbarStyle.module.css";
 import '@draft-js-plugins/image/lib/plugin.css';
 import '@draft-js-plugins/emoji/lib/plugin.css';
+import "@draft-js-plugins/mention/lib/plugin.css";
 
 const toolbarPlugin = createToolbarPlugin({
   theme: { buttonStyles, toolbarStyles },
@@ -31,7 +36,6 @@ const blockDndPlugin = createBlockDndPlugin();
 const alignmentPlugin = createAlignmentPlugin();
 const { AlignmentTool } = alignmentPlugin;
 const linkifyPlugin = createLinkifyPlugin( { component(props) {
-  // eslint-disable-next-line no-alert, jsx-a11y/anchor-has-content
   return <a {...props} onClick={() =>   window.open(
     props.href, "_blank")} />
 }});
@@ -52,6 +56,8 @@ const { Toolbar } = toolbarPlugin;
 
 const emojiPlugin = createEmojiPlugin();
 const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
+const mentionPlugin = createMentionPlugin();
+const { MentionSuggestions } = mentionPlugin;
 
 const plugins = [
   toolbarPlugin,
@@ -62,7 +68,8 @@ const plugins = [
   resizeablePlugin,
   imagePlugin,
   linkifyPlugin,
-  emojiPlugin
+  emojiPlugin,
+  mentionPlugin
 ];
 
 
@@ -86,11 +93,25 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
     console.log(editorState.getCurrentContent());
     console.log(JSON.stringify(data));
   };
-  const focus = (editor) => {
-    editor.focus();
-  };
+
+  const [open, setOpen] = useState(false);
+  const [suggestions, setSuggestions] = useState(mentions);
+
+
+  const onOpenChange = useCallback((_open) => {
+    setOpen(_open);
+  }, []);
+  const onSearchChange = useCallback(({ value }) => {
+    setOpen(true);
+    setTimeout(() => {
+      setSuggestions(defaultSuggestionsFilter(value, mentions));
+    }, 200);
+  }, []);
+  
+
+
   useEffect(() => {
-    //setEditorState(createEditorStateWithText(text));
+    console.log("hey");
   }, []);
 
   return (
@@ -106,6 +127,15 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
         {/* <Toolbar /> */}
         <EmojiSuggestions />
         <EmojiSelect />
+        <MentionSuggestions
+        open={open}
+        onOpenChange={onOpenChange}
+        suggestions={suggestions}
+        onSearchChange={onSearchChange}
+        onAddMention={() => {
+          // get the mention object selected
+        }}
+      />  
       </div>
       <button onClick={logMe}>Click Me</button>
     </div>

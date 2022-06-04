@@ -2,7 +2,7 @@
   "blocks": [
     {
       "key": "8i090",
-      "text": "Hello CodePulse!",
+      "text": "Hello Buddies!",
       "type": "unstyled",
       "depth": 0,
       "inlineStyleRanges": [{ "offset": 0, "length": 16, "style": "BOLD" }],
@@ -11,7 +11,7 @@
     },
     {
       "key": "42ncd",
-      "text": "This text should be underlined.",
+      "text": "Underline Text",
       "type": "unstyled",
       "depth": 0,
       "inlineStyleRanges": [
