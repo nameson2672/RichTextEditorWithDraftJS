@@ -42,7 +42,7 @@ export default function mockUpload(data, success, failed, progress) {
         success = true;
       }).catch((err)=>{
         failed(data.files[0]);
-        console.log(data.files[0]);
+        alert("the file upload is failed");
         return false;
         
       });
