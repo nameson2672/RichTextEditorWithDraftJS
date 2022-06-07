@@ -218,7 +218,7 @@
       "type": "IMAGE",
       "mutability": "IMMUTABLE",
       "data": {
-        "src": "http://localhost:5000/uploads\\image-1654578388053.png",
+        "src": "https://richtexteditorusingdraftjs.herokuapp.com/uploads\\image.jpg",
         "width": 100,
         "height": 0,
         "alignment": "center"

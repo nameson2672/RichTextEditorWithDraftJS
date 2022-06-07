@@ -38,7 +38,7 @@ export default function mockUpload(data, success, failed, progress) {
     let payload = new FormData();
     payload.append("image", data.files[0]);
     axios
-      .post("http://localhost:5000/uploadImage", payload, options)
+      .post("https://richtexteditorusingdraftjs.herokuapp.com/uploadImage", payload, options)
       .then((res) => {
         data.files[0].src = res.data;
         console.log(res.data);
