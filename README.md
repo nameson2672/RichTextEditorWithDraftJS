@@ -1,8 +1,6 @@
 # Rich Text Editor Build With Draftjs and Love❤️❤️
 
-![a](https://raw.githubusercontent.com/nameson2672/RichTextEditorWithDraftJS/main/uploads/forReadme2.png)
-
-
+![a](https://raw.githubusercontent.com/nameson2672/RichTextEditorWithDraftJS/main/uploads/FforReadme2.png)
 
 ## Features:
 
