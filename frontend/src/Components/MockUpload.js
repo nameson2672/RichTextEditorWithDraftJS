@@ -11,23 +11,41 @@ import axios from "axios";
  * @param {(function(percent:int, file: {name:string, src:string})} progress - function to mark the progress in percentage points. It updates the progress count on each placeholder.
  */
 export default function mockUpload(data, success, failed, progress) {
-
-  const options = {
-    onUploadProgress: (progressEvent)=>{
-      const {loaded, total} = progressEvent;
-      let percent = Math.floor((loaded*100)/total);
-      progress(percent, data.files[0]);
-      
-      console.log(loaded, total, percent);
-    }
+  console.log(data.files)
+  //failed(data.files);
+  setTimeout(1000);
+  if (data.files.length > 1) {
+     alert("multiple file cand be uploaded");
+     return false;
+    
   } 
+  else {
+    console.log("run2")
+    const options = {
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent;
+        let percent = Math.floor((loaded * 100) / total);
+        progress(percent, data.files[0]);
 
-  let payload = new FormData();
-  payload.append("image", data.files[0]);
-  axios.post("http://localhost:5000/uploadImage", payload, options).then(res =>{
-    data.files[0].src = res.data;
-    console.log(res.data);
-    success(data.files, { retainSrc: true });
-  });
-
+        console.log(loaded, total, percent);
+      },
+    };
+    let sucess=false;
+    let payload = new FormData();
+    payload.append("image", data.files[0]);
+    axios
+      .post("http://localhost:5000/uploadImage", payload, options)
+      .then((res) => {
+        data.files[0].src = res.data;
+        console.log(res.data);
+        success(data.files, { retainSrc: true });
+        success = true;
+      }).catch((err)=>{
+        failed(data.files[0]);
+        console.log(data.files[0]);
+        return false;
+        
+      });
+  }
+  
 }

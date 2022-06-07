@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import mockUpload from "../Components/MockUpload";
 import mentions from "../mention";
+import jsonData from "../data.json";
+
 
 import Editor, { composeDecorators } from "@draft-js-plugins/editor";
 import { convertToRaw, convertFromRaw, EditorState } from "draft-js";
@@ -101,7 +103,7 @@ const plugins = [
 ];
 
 const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
-  const contentState = convertFromRaw(draftjsData);
+  const contentState = convertFromRaw(jsonData);
 
   const [editorState, setEditorState] = useState(
     EditorState.createWithContent(contentState)
@@ -110,8 +112,11 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
 
   const onChange = (editorState) => {
     setEditorState(editorState);
-    console.log(editorState);
-    setDraftjsData(convertToRaw(editorState.getCurrentContent()));
+    
+  const content = editorState.getCurrentContent();
+    //setDraftjsData(convertToRaw(content));
+    console.log(content);
+    
   };
 
   const logMe = () => {
@@ -180,7 +185,7 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
           }}
         />
       </div>
-      <button onClick={logMe}>Click Me</button>
+      <button className="setRenderJsonValueButton" onClick={logMe}>Render Content To JSON</button>
     </div>
   );
 };
