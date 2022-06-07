@@ -2,51 +2,325 @@
   "blocks": [
     {
       "key": "8i090",
-      "text": "Hello Buddies!",
+      "text": "🤩🤩🤩Rich Text Editor 😍 😍 😍 ",
+      "type": "header-one",
+      "depth": 0,
+      "inlineStyleRanges": [{ "offset": 0, "length": 26, "style": "center" }],
+      "entityRanges": [
+        { "offset": 0, "length": 1, "key": 0 },
+        { "offset": 1, "length": 1, "key": 1 },
+        { "offset": 2, "length": 1, "key": 2 },
+        { "offset": 20, "length": 1, "key": 3 },
+        { "offset": 22, "length": 1, "key": 4 },
+        { "offset": 24, "length": 1, "key": 5 }
+      ],
+      "data": {}
+    },
+    {
+      "key": "3v79q",
+      "text": " ",
+      "type": "atomic",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [{ "offset": 0, "length": 1, "key": 6 }],
+      "data": {}
+    },
+    {
+      "key": "80mbf",
+      "text": "",
       "type": "unstyled",
       "depth": 0,
-      "inlineStyleRanges": [{ "offset": 0, "length": 16, "style": "BOLD" }],
+      "inlineStyleRanges": [],
       "entityRanges": [],
       "data": {}
     },
     {
-      "key": "42ncd",
-      "text": "Underline Text",
+      "key": "5pucj",
+      "text": "This is the rich text editor🤫🤫 with all rich text functionality🙄🙄 where you can tag people🙅🙅‍♂️🙆 ( Matthew Russell Max Stoiber Jyoti Puri ) and a lot of other functions as available in any rich text editor like:💄 💄 💄 ",
       "type": "unstyled",
       "depth": 0,
+      "inlineStyleRanges": [{ "offset": 12, "length": 16, "style": "BOLD" }],
+      "entityRanges": [
+        { "offset": 28, "length": 1, "key": 7 },
+        { "offset": 29, "length": 1, "key": 8 },
+        { "offset": 63, "length": 1, "key": 9 },
+        { "offset": 64, "length": 1, "key": 10 },
+        { "offset": 90, "length": 1, "key": 11 },
+        { "offset": 91, "length": 4, "key": 12 },
+        { "offset": 95, "length": 1, "key": 13 },
+        { "offset": 99, "length": 15, "key": 14 },
+        { "offset": 115, "length": 11, "key": 15 },
+        { "offset": 127, "length": 10, "key": 16 },
+        { "offset": 211, "length": 1, "key": 17 },
+        { "offset": 213, "length": 1, "key": 18 },
+        { "offset": 215, "length": 1, "key": 19 }
+      ],
+      "data": {}
+    },
+    {
+      "key": "50as4",
+      "text": "Bold italic and underline text.",
+      "type": "unordered-list-item",
+      "depth": 0,
       "inlineStyleRanges": [
-        { "offset": 0, "length": 31, "style": "UNDERLINE" }
+        { "offset": 0, "length": 4, "style": "BOLD" },
+        { "offset": 5, "length": 6, "style": "ITALIC" },
+        { "offset": 15, "length": 10, "style": "UNDERLINE" }
       ],
       "entityRanges": [],
       "data": {}
     },
     {
-      "key": "327r6",
-      "text": "And this text should be italic.",
-      "type": "unstyled",
+      "key": "4kqo1",
+      "text": "inline code block",
+      "type": "unordered-list-item",
       "depth": 0,
-      "inlineStyleRanges": [{ "offset": 0, "length": 31, "style": "ITALIC" }],
+      "inlineStyleRanges": [{ "offset": 0, "length": 17, "style": "CODE" }],
       "entityRanges": [],
       "data": {}
     },
     {
-      "key": "ac2qm",
-      "text": "DraftJS Plugins - High quality plugins with great UX (draft-js-plugins.com)",
+      "key": "52j75",
+      "text": "text center",
+      "type": "unordered-list-item",
+      "depth": 0,
+      "inlineStyleRanges": [{ "offset": 0, "length": 11, "style": "center" }],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "58knl",
+      "text": "Text left",
+      "type": "unordered-list-item",
+      "depth": 0,
+      "inlineStyleRanges": [{ "offset": 0, "length": 9, "style": "left" }],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "495hv",
+      "text": "Text Right",
+      "type": "unordered-list-item",
+      "depth": 0,
+      "inlineStyleRanges": [{ "offset": 0, "length": 10, "style": "right" }],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "b8dvi",
+      "text": "And much more",
+      "type": "unordered-list-item",
+      "depth": 0,
+      "inlineStyleRanges": [{ "offset": 0, "length": 13, "style": "left" }],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "50h4l",
+      "text": "const logMe = () => {",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "20huj",
+      "text": "     const data = 😁😁😁;",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [
+        { "offset": 18, "length": 1, "key": 20 },
+        { "offset": 19, "length": 1, "key": 21 },
+        { "offset": 20, "length": 1, "key": 22 }
+      ],
+      "data": {}
+    },
+    {
+      "key": "2875q",
+      "text": "     setDraftjsData(data);",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "5ojge",
+      "text": "     console.log(data);",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "dbd24",
+      "text": "};",
+      "type": "code-block",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "dgva1",
+      "text": "",
       "type": "unstyled",
       "depth": 0,
       "inlineStyleRanges": [],
-      "entityRanges": [{ "offset": 0, "length": 75, "key": 0 }],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "1koq8",
+      "text": "",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
       "data": {}
     }
   ],
   "entityMap": {
     "0": {
-      "type": "LINK",
-      "mutability": "MUTABLE",
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🤩" }
+    },
+    "1": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🤩" }
+    },
+    "2": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🤩" }
+    },
+    "3": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "😍" }
+    },
+    "4": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "😍" }
+    },
+    "5": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "😍" }
+    },
+    "6": {
+      "type": "IMAGE",
+      "mutability": "IMMUTABLE",
       "data": {
-        "href": "https://www.draft-js-plugins.com/plugin/linkify",
-        "url": "https://www.draft-js-plugins.com/plugin/linkify"
+        "src": "http://localhost:5000/uploads\\image-1654578388053.png",
+        "width": 100,
+        "height": 0,
+        "alignment": "center"
       }
+    },
+    "7": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🤫" }
+    },
+    "8": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🤫" }
+    },
+    "9": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🙄" }
+    },
+    "10": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🙄" }
+    },
+    "11": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🙅" }
+    },
+    "12": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🙅‍♂️" }
+    },
+    "13": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "🙆" }
+    },
+    "14": {
+      "type": "mention",
+      "mutability": "SEGMENTED",
+      "data": {
+        "mention": {
+          "name": "Matthew Russell",
+          "title": "Senior Software Engineer",
+          "avatar": "https://pbs.twimg.com/profile_images/517863945/mattsailing_400x400.jpg"
+        }
+      }
+    },
+    "15": {
+      "type": "mention",
+      "mutability": "SEGMENTED",
+      "data": {
+        "mention": {
+          "name": "Max Stoiber",
+          "title": "Travels around the world, brews coffee, skis mountains and makes stuff on the web.",
+          "avatar": "https://avatars0.githubusercontent.com/u/7525670?s=200&v=4"
+        }
+      }
+    },
+    "16": {
+      "type": "mention",
+      "mutability": "SEGMENTED",
+      "data": {
+        "mention": {
+          "name": "Jyoti Puri",
+          "title": "New Delhi, India",
+          "avatar": "https://avatars0.githubusercontent.com/u/2182307?v=3&s=400"
+        }
+      }
+    },
+    "17": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "💄" }
+    },
+    "18": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "💄" }
+    },
+    "19": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "💄" }
+    },
+    "20": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "😁" }
+    },
+    "21": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "😁" }
+    },
+    "22": {
+      "type": "emoji",
+      "mutability": "IMMUTABLE",
+      "data": { "emojiUnicode": "😁" }
     }
   }
 }

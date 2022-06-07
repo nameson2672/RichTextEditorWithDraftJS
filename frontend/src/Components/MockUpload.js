@@ -21,6 +21,10 @@ export default function mockUpload(data, success, failed, progress) {
   } 
   else {
     console.log("run2")
+    if(data.files[0].src !== undefined){
+      success(data.files);
+      return true;
+    }
     const options = {
       onUploadProgress: (progressEvent) => {
         const { loaded, total } = progressEvent;

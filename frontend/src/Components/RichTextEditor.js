@@ -180,7 +180,8 @@ const ThemedToolbarEditor = ({ setDraftjsData, draftjsData }) => {
           onOpenChange={onOpenChange}
           suggestions={suggestions}
           onSearchChange={onSearchChange}
-          onAddMention={() => {
+          onAddMention={(e) => {
+            console.log(e);
             // get the mention object selected
           }}
         />
